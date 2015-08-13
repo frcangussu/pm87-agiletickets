@@ -121,4 +121,14 @@ public class Sessao {
 		return preco;
 	}
 	
+	public BigDecimal calculaPrecoPorDemanda( Double indice, Double percentual) {
+		BigDecimal preco;
+		
+		if((getTotalIngressos() - getIngressosReservados()) / getTotalIngressos().doubleValue() <= indice) { 
+			preco = getPreco().add(getPreco().multiply(BigDecimal.valueOf(percentual)));
+		} else {
+			preco = getPreco();
+		}
+		return preco;
+	}
 }
