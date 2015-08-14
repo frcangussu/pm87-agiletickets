@@ -1,10 +1,13 @@
 package br.com.caelum.agiletickets.acceptance;
 
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.caelum.agiletickets.acceptance.page.EstabelecimentosPage;
@@ -28,6 +31,20 @@ public class EstabelecimentoTest {
 	@AfterClass
 	public static void teardown() {
 		browser.close();
+	}
+	
+	@Test
+	public void testeAula05() throws Exception {
+		browser.get("http://www.google.com");
+		
+		WebElement campoBusca = browser.findElement(By.id("busca"));
+		campoBusca.sendKeys("Caelum");
+		
+		WebElement form = browser.findElement(By.tagName("form"));
+		form.submit();
+		
+		WebElement link = browser.findElement(By.linkText("Caelum"));
+		Assert.assertNotNull(link);
 	}
 
 	@Test
