@@ -65,7 +65,7 @@
          ================================= -->
 	<target name="test" depends="compile-test" description="--> run all tests">
 		<mkdir dir="${output.dir}/test-results" />
-		<junit haltonfailure="yes">
+		<junit haltonfailure="yes"> <!-- haltonfailure (yes): quebra a aplicacao em caso de falhas -->
 			<batchtest fork="yes" todir="${output.dir}/test-results">
 				<fileset dir="${test.src.dir}">
 					<include name="**/*Test.java"/>
